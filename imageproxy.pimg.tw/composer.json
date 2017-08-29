@@ -1,0 +1,13 @@
+{
+    "name": "pixnet/piximageproxy",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/pixnet/imagesweserv"
+        }
+    ],
+    "require": {
+        "andrieslouw/imagesweserv": "3.x"
+    },
+    "minimum-stability": "dev"
+}

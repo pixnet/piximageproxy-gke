@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: imageproxy
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: imageproxy
+    spec:
+      containers:
+      - name: imageproxy
+        image: asia.gcr.io/pixnet-data/imageproxy.pimg.tw:latest
+        livenessProbe:
+          httpGet:
+            path: /health/check
+            port: 8082
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /health/check
+            port: 8082
+          periodSeconds: 3
+        ports:
+        - containerPort: 8082
+        env:
+        - name: NGINX_REALIP
+          value: "imageproxy-gke.pimg.tw"
+        - name: APP_ENV
+          value: "production"

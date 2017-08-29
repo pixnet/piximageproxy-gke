@@ -1,0 +1,11 @@
+# origin.imageproxy-gke.pimg.tw
+User-agent: Googlebot
+Disallow:
+Allow: /
+
+User-agent: Googlebot-Mobile
+Disallow:
+Allow: /
+
+User-agent: *
+Disallow: /

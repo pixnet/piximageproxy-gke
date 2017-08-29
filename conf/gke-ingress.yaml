@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-imageproxy
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "imageproxy-gke-pimg-tw"
+spec:
+  tls:
+  - secretName: wildcard-pimg-tw
+  backend:
+    serviceName: imageproxy
+    servicePort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-imageproxy-v6
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "imageproxy-gke-pimg-tw-v6"
+spec:
+  tls:
+  - secretName: wildcard-pimg-tw
+  backend:
+    serviceName: imageproxy
+    servicePort: 80
+
